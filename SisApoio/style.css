@@ -1,0 +1,52 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    font-size: 2.5rem;
+    margin-top: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: #0066cc;
+    padding: 10px 15px;
+    display: inline-block;
+    margin: 0 5px;
+}
+
+a:hover {
+    background-color: #0066cc;
+    color: #fff;
+    border-radius: 5px;
+}
+
+/* Barra de navegación */
+hr {
+    border: none;
+    height: 2px;
+    background-color: #ccc;
+}
+
+nav {
+    text-align: center;
+    margin: 10px 0;
+}
+
+/* Estilos responsivos */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    a {
+        display: block;
+        margin: 5px 0;
+    }
+}
