@@ -1,0 +1,381 @@
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #f0f2f5;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Navegación */
+nav {
+    background: white;
+    padding: 15px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+nav a {
+    color: #333;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    background: #2563eb;
+    color: white;
+}
+
+/* Contenedor principal */
+.container {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Títulos */
+h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2em;
+}
+
+h2 {
+    color: #444;
+    margin: 20px 0;
+    font-size: 1.5em;
+}
+
+/* Enlaces como botones */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #2563eb;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+}
+
+/* Grid para deportes */
+.grid-deportes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.deporte-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.deporte-card:hover {
+    transform: translateY(-5px);
+    border-color: #2563eb;
+    color: #2563eb;
+    box-shadow: 0 5px 15px rgba(37, 99, 235, 0.2);
+}
+
+/* Formularios */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #444;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .grid-deportes {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 15px;
+    }
+
+    .deporte-card {
+        padding: 15px;
+    }
+
+    nav {
+        flex-direction: column;
+    }
+    
+    nav a {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .container {
+        padding: 15px;
+    }
+}
+
+/* Nuevos estilos para la lista de maratonas */
+.maratona-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.maratona-item {
+    background: #f8fafc;
+    padding: 20px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border-left: 4px solid transparent;
+}
+
+.maratona-item:hover {
+    transform: translateX(10px);
+    border-left-color: #2563eb;
+    background: #f1f5f9;
+}
+
+.maratona-item h2 {
+    color: #2563eb;
+    font-size: 1.3em;
+    font-weight: 500;
+    margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+    }
+    
+    nav a {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .container {
+        padding: 20px;
+        margin: 0 10px;
+    }
+
+    .maratona-item {
+        padding: 15px;
+    }
+
+    .maratona-item:hover {
+        transform: translateX(5px);
+    }
+}
+
+.modalidade-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.btn-modalidade {
+    background: #2563eb;
+    color: white;
+    padding: 15px 40px;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 2px solid #2563eb;
+    cursor: pointer;
+    text-align: center;
+    min-width: 200px;
+}
+
+.btn-modalidade:hover {
+    background: white;
+    color: #2563eb;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .modalidade-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .btn-modalidade {
+        width: 100%;
+        padding: 12px 30px;
+    }
+}
+
+.deporte-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px 0;
+}
+
+.deporte-btn {
+    background: #f8fafc;
+    padding: 20px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: left;
+    width: 100%;
+    border-left: 4px solid transparent;
+}
+
+.deporte-btn:hover {
+    background: #f1f5f9;
+    transform: translateX(10px);
+    border-left-color: #2563eb;
+}
+
+.deporte-btn h2 {
+    color: #2563eb;
+    font-size: 1.3em;
+    font-weight: 500;
+    margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .deporte-btn {
+        padding: 15px;
+    }
+
+    .deporte-btn:hover {
+        transform: translateX(5px);
+    }
+
+    .deporte-btn h2 {
+        font-size: 1.1em;
+    }
+}
+
+.dates-section {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.dates-content {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.dates-info {
+    flex: 1;
+}
+
+.dates-image {
+    width: 300px;
+    flex-shrink: 0;
+}
+
+.dates-image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.dates-image img:hover {
+    transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-section {
+        height: 200px;
+    }
+
+    .hero-content h1 {
+        font-size: 2em;
+    }
+
+    .dates-content {
+        flex-direction: column;
+    }
+
+    .dates-image {
+        width: 100%;
+        order: -1;
+    }
+
+    .dates-image img {
+        height: 150px;
+    }
+}
+
+/* Animaciones para imágenes */
+img {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease-in-out;
+}
+
+img.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Estilo para enlaces activos */
+nav a.active {
+    color: #ff6b6b;
+    font-weight: bold;
+}
+
+/* Efectos hover para enlaces */
+nav a {
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    color: #ff6b6b;
+    transform: translateY(-2px);
+}
