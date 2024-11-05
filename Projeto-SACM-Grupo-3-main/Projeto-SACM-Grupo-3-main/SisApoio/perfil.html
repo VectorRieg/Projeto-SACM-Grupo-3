@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="programacao,html,css,competicao,competições,maratona,maratonas,sacm,sisapoio">
+    <meta name="author" content="Victor,Markos,Santiago">
+    <link rel="stylesheet" href="styles.css">
+    <title>Perfil</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css"><script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script> 
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</head>
+ 
+<body>
+<div>
+        <header>
+            <nav>
+                <a href="index.html">Início</a>
+                <a href="competicoes.html">Competições</a>
+                <a href="maratonas.html">Maratonas</a>
+                <a href="datas.html">Datas</a>
+                <a href="crieseugrupo.html">Crie seu Grupo</a>
+                <a href="cadastrarse.html">Cadastrar-se</a>
+                <a href="entrar.html">Entrar</a>
+                <a href="perfil.html"><ion-icon name="person-circle-outline"></ion-icon></a>
+            </nav>
+        </header>
+        
+        <main class="profile-container">
+            <section class="profile-header">
+                <img src="imgs/profile-photo.png" alt="Foto de Perfil" class="profile-photo">
+                <h1 id="profile-name">Seu Nome</h1>
+                <p id="profile-bio">Sua bio aqui. Exemplo: Entusiasta de programação e competições.</p>
+                <button onclick="editProfile()" class="edit-profile-btn">Editar Perfil</button>
+                <button onclick="logout()" class="logout-btn">Sair</button>
+            </section>
+    
+            <section class="profile-info">
+                <h2>Informações de Contato</h2>
+                <ul>
+                    <li>Email: <span id="profile-email">seuemail@example.com</span></li>
+                    <li>Telefone: <span id="profile-phone">(00) 12345-6789</span></li>
+                    <li>Localização: <span id="profile-location">Sua cidade, país</span></li>
+                </ul>
+            </section>
+    
+            <section class="profile-activities">
+                <h2>Atividades Recentes</h2>
+                <ul>
+                    <li>Entrou no Site </li>
+                </ul>
+                <button onclick="editActivities()" class="add-activity-btn">Adicionar Atividade</button>
+            </section>
+        </main>
+    
+        <script src="main.js"></script>
+    </body>
+</html>
