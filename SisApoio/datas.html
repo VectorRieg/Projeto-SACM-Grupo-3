@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="competicoes.html">Competições</a>
+        <a href="maratonas.html">Maratonas</a>
+        <a href="datas.html">Datas</a>
+        <a href="crieseugrupo.html">Crie seu Grupo</a>
+        <a href="cadastrarse.html">Cadastrar-se</a>
+        <a href="entrar.html">Entrar</a>
+        <a href="perfil.html"><ion-icon name="person-circle-outline"></ion-icon></a>
+    </nav>
+
+    <div class="container">
+        <h1>Datas dos Eventos</h1>
+        
+        <div class="dates-section">
+            <div class="dates-content">
+                <div class="dates-info">
+                    <h2>Competições</h2>
+                    <div class="dates-list" id="competicoes-dates">
+                        <!-- Las fechas se generarán dinámicamente -->
+                    </div>
+                </div>
+                <div class="dates-image">
+                    <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?ixlib=rb-4.0.3" alt="Competições">
+                </div>
+            </div>
+        </div>
+
+        <div class="dates-section">
+            <div class="dates-content">
+                <div class="dates-info">
+                    <h2>Maratonas</h2>
+                    <div class="dates-list" id="maratonas-dates">
+                        <!-- Las fechas se generarán dinámicamente -->
+                    </div>
+                </div>
+                <div class="dates-image">
+                    <img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?ixlib=rb-4.0.3" alt="Maratonas">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function generateRandomDate() {
+            const day = Math.floor(Math.random() * 30) + 1;
+            const month = Math.floor(Math.random() * 12) + 1;
+            const hour = Math.floor(Math.random() * 13) + 8; // 8 AM a 20 PM
+            const minutes = ['00', '30'][Math.floor(Math.random() * 2)]; // Solo 00 o 30
+            const ampm = hour >= 12 ? 'PM' : 'AM';
+            const formattedHour = hour > 12 ? hour - 12 : hour;
+            
+            return `${day.toString().padStart(2, '0')}/${month.toString().padStart(2, '0')} - ${formattedHour}:${minutes} ${ampm}`;
+        }
+
+        function populateDates(containerId, count) {
+            const container = document.getElementById(containerId);
+            const dates = [];
+            
+            // Generar fechas aleatorias
+            for(let i = 0; i < count; i++) {
+                dates.push(generateRandomDate());
+            }
+            
+            // Ordenar fechas
+            dates.sort((a, b) => {
+                const [dateA, timeA] = a.split(' - ');
+                const [dateB, timeB] = b.split(' - ');
+                const [dayA, monthA] = dateA.split('/');
+                const [dayB, monthB] = dateB.split('/');
+                
+                if (monthA !== monthB) return monthA - monthB;
+                if (dayA !== dayB) return dayA - dayB;
+                return timeA.localeCompare(timeB);
+            });
+            
+            // Crear elementos HTML
+            dates.forEach(date => {
+                const dateDiv = document.createElement('div');
+                dateDiv.className = 'date-item';
+                dateDiv.textContent = date;
+                container.appendChild(dateDiv);
+            });
+        }
+
+        // Generar 10 fechas para competiciones y 2 para maratones
+        populateDates('competicoes-dates', 10);
+        populateDates('maratonas-dates', 2);
+    </script>
+</body>
+</html>

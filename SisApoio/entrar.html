@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="competicoes.html">Competições</a>
+        <a href="maratonas.html">Maratonas</a>
+        <a href="datas.html">Datas</a>
+        <a href="crieseugrupo.html">Crie seu Grupo</a>
+        <a href="cadastrarse.html">Cadastrar-se</a>
+        <a href="entrar.html">Entrar</a>
+        <a href="perfil.html"><ion-icon name="person-circle-outline"></ion-icon></a>
+    </nav>
+
+    <div class="container">
+        <h1>Entrar</h1>
+        <form id="entrarRegistro">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" required autocomplete="email">
+            </div>
+            <div class="form-group">
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" required>
+            </div>
+            <button type="submit" class="submit-btn">Entrar</button>
+        </form>
+    </div>
+
+    <script>
+        const KEY_BD = "@usuariosestudo";
+
+        document.getElementById("entrarRegistro").addEventListener("submit", function(event) {
+            event.preventDefault(); // Previne o comportamento padrão de recarregar a página
+
+            // Obtém o e-mail e a senha inseridos pelo usuário
+            const email = document.getElementById("email").value;
+            const senha = document.getElementById("senha").value;
+
+            // Recupera os usuários do localStorage
+            const listaRegistros = JSON.parse(localStorage.getItem(KEY_BD));
+
+            // Verifica se os dados de login estão corretos
+            if (listaRegistros && listaRegistros.usuarios) {
+                const usuarioEncontrado = listaRegistros.usuarios.find(usuario => usuario.email === email && usuario.senha === senha);
+
+                if (usuarioEncontrado) {
+                    alert("Login bem-sucedido!");
+                    window.location.href = "index.html"; // Redireciona para a página inicial
+                } else {
+                    alert("E-mail ou senha incorretos.");
+                }
+            } else {
+                alert("Nenhum usuário encontrado. Por favor, cadastre-se primeiro.");
+            }
+        });
+    </script>
+
+</body>
+</html>

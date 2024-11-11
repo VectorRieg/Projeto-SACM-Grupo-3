@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="keywords" content="programacao,html,css,competicao,competições,maratona,maratonas,sacm,sisapoio">
+        <meta name="author" content="Victor,Markos,Santiago">
+        <title>Sistema de Apoio a Competições e Maratonas</title>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="styles.css">
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+        <script type='text/javasctipt' src="main-lista.js"></script>
+            <style>
+                #listaRegistros{ display: none; }
+                #cadastroRegistro{ 
+                    display: none;
+                    flex-direction: column;
+                    gap: 30px;
+                }
+                
+                body[page=lista] #listaRegistros { display: block; }
+                body[page=cadastro] #cadastroRegistro { display: flex; }
+            
+                body{
+                    font-size: 14px;
+                }    
+                table{
+                    width: 100%;
+                    border-collapse: collapse;
+                }
+                table th,
+                table td{
+                    font-size: 14px;
+                    padding: 10px 15px;
+                    border: solid 1px #ccc;
+                }
+                button{
+                    border: none;
+                    border-radius: 4px;
+                    cursor: pointer;
+                    background-color: #07a;
+                    color: #fff;
+                    margin: 3px;
+                    padding: 10px 15px;
+                }
+                button.cinza{
+                     background-color: #ccc;
+                     color: #666;
+                }
+                button.vermelho{
+                     background-color: #a00;
+                }
+                button:hover{
+                    opacity: 0.8;
+                }
+                input {
+                    border: solid 1px #ccc;
+                    border-radius: 4px;
+                    padding: 10px;
+                }
+                .label>div {
+                    display: flex;
+                }
+                .label>div>input {
+                    flex: 1;
+                }
+
+            </style>
+
+    </head>
+<body page="lista">
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="competicoes.html">Competições</a>
+        <a href="maratonas.html">Maratonas</a>
+        <a href="datas.html">Datas</a>
+        <a href="crieseugrupo.html">Crie seu Grupo</a>
+        <a href="cadastrarse.html">Cadastrar-se</a>
+        <a href="entrar.html">Entrar</a>
+        <a href="perfil.html"><ion-icon name="person-circle-outline"></ion-icon></a>
+    </nav>
+
+    <div id="listaRegistros">
+        <h1>Lista de Usuários</h1>
+        <div style='display: flex;'>
+            <input style='flex:1' placeholder="PESQUISAR" autofocus id='inputPesquisa' />
+        </div>
+        <!-- Tabela de usuários -->
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>CPF</th>
+                    <th>Email</th>
+                    <th>Senha</th>
+                </tr>
+            </thead>
+            <tbody id="listaRegistrosBody">
+                <!-- Os usuários serão carregados aqui dinamicamente -->
+            </tbody>
+        </table>
+        
+        <div>
+            <button onclick="vizualizar('cadastro', true)">Novo usuario</button>
+        </div>
+    
+    </div>
+        <!-- Formulário para criação e edição -->
+        <form id="cadastroRegistro">
+            <div class='label'>
+                <div>ID</div>
+                <div>
+                    <input type='number' readonly id='id'>
+                </div>
+            </div>
+
+            <div class='label'>
+                <div>Nome</div>
+                <div>
+                    <input id='nome'>
+                </div>
+            </div>
+
+            <div class='label'>
+                <div>CPF</div>
+                <div>
+                    <input type='number' id='cpf'>
+                </div>
+            </div>
+
+            <div class='label'>
+                <div>Email</div>
+                <div>
+                    <input type='email' id='email'>
+                </div>
+            </div>
+
+            <div class='label'>
+               <div>Senha</div>
+               <div>
+                   <input type='text' id='senha'>
+               </div>
+            </div>
+
+            <div>
+                <button>Salvar</button>
+                <button onclick="vizualizar('lista')" class="cinza" type='button'>Cancelar</button>
+            </div>
+        </form>
+
+    <script src="main.js"></script>
+</body>
