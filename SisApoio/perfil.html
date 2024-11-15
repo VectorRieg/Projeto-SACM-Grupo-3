@@ -12,7 +12,19 @@
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </head>
- 
+<style>
+body {
+    background-image: url(imgs/background2.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Garante que o body ocupe toda a altura da tela */
+    margin: 0;
+
+}
+</style>
 <body>
 <div>
             <nav>
@@ -21,21 +33,20 @@
                 <a href="maratonas.html">Maratonas</a>
                 <a href="datas.html">Datas</a>
                 <a href="crieseugrupo.html">Crie seu Grupo</a>
-                <a href="cadastrarse.html">Cadastrar-se</a>
-                <a href="entrar.html">Entrar</a>
+                <a href="ListadeGrupos.html">Lista de Grupos</a>
+                <a href="cadastrarse.html" class="preto">Cadastrar-se</a>
+                <a href="entrar.html" class="azul">Entrar</a>
                 <a href="perfil.html"><ion-icon name="person-circle-outline"></ion-icon></a>
                 <a href="lista.html">Lista de Usuarios</a>
-            </nav>
-        
+            </nav>   
         <main class="profile-container">
             <section class="profile-header">
-                <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path d="M258.9 48C141.92 46.42 46.42 141.92 48 258.9c1.56 112.19 92.91 203.54 205.1 205.1 117 1.6 212.48-93.9 210.88-210.88C462.44 140.91 371.09 49.56 258.9 48zm126.42 327.25a4 4 0 01-6.14-.32 124.27 124.27 0 00-32.35-29.59C321.37 329 289.11 320 256 320s-65.37 9-90.83 25.34a124.24 124.24 0 00-32.35 29.58 4 4 0 01-6.14.32A175.32 175.32 0 0180 259c-1.63-97.31 78.22-178.76 175.57-179S432 158.81 432 256a175.32 175.32 0 01-46.68 119.25z"/><path d="M256 144c-19.72 0-37.55 7.39-50.22 20.82s-19 32-17.57 51.93C191.11 256 221.52 288 256 288s64.83-32 67.79-71.24c1.48-19.74-4.8-38.14-17.68-51.82C293.39 151.44 275.59 144 256 144z"/></svg>>
+                <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path d="M258.9 48C141.92 46.42 46.42 141.92 48 258.9c1.56 112.19 92.91 203.54 205.1 205.1 117 1.6 212.48-93.9 210.88-210.88C462.44 140.91 371.09 49.56 258.9 48zm126.42 327.25a4 4 0 01-6.14-.32 124.27 124.27 0 00-32.35-29.59C321.37 329 289.11 320 256 320s-65.37 9-90.83 25.34a124.24 124.24 0 00-32.35 29.58 4 4 0 01-6.14.32A175.32 175.32 0 0180 259c-1.63-97.31 78.22-178.76 175.57-179S432 158.81 432 256a175.32 175.32 0 01-46.68 119.25z"/><path d="M256 144c-19.72 0-37.55 7.39-50.22 20.82s-19 32-17.57 51.93C191.11 256 221.52 288 256 288s64.83-32 67.79-71.24c1.48-19.74-4.8-38.14-17.68-51.82C293.39 151.44 275.59 144 256 144z"/></svg>
                 <h1 id="profile-name">Seu Nome</h1>
                 <p id="profile-bio">Sua bio aqui. Exemplo: Entusiasta de programação e competições.</p>
                 <button onclick="editProfile()" class="edit-profile-btn">Editar Perfil</button>
                 <button onclick="logout()" class="logout-btn">Sair</button>
             </section>
-    
             <section class="profile-info">
                 <h2>Informações de Contato</h2>
                 <ul>
@@ -44,7 +55,6 @@
                     <li>Localização: <span id="profile-location">Sua cidade, país</span></li>
                 </ul>
             </section>
-    
             <section class="profile-activities">
                 <h2>Atividades Recentes</h2>
                 <ul>
@@ -53,8 +63,37 @@
                 <button onclick="editActivities()" class="add-activity-btn">Adicionar Atividade</button>
             </section>
         </main>
-        
+        <footer>
+            <div class="container3">
+                <div class="footer-content">
+                    <h3>Contate-nos</h3>
+                    <p>Email:Info@exemplo.com</p>
+                    <p>Fone:+ 12 12345 6789</p>
+                    <p>Endereço: Rua Seu Endereço 123</p>
+                </div>
+                <div class="footer-content">
+                    <h3>Links Rápidos</h3>
+                     <ul class="list">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="competicoes.html">Competições</a></li>
+                        <li><a href="maratonas.html">Maratonas</a></li>
+                        <li><a href="datas.html">Datas</a></li>
+                        <li><a href="crieseugrupo.html">Crie seu grupo</a></li>
+                     </ul>
+                </div>
+                <div class="footer-content">
+                    <h3>Redes Sociais</h3>
+                    <ul class="list">
+                     <li><a href="https://www.facebook.com"><ion-icon name="logo-facebook"></ion-icon> Facebook</a></li>
+                     <li><a href="https://www.instagram.com"><ion-icon name="logo-instagram"></ion-icon> Instagram</a></li>
+                     <li><a href="https://br.linkedin.com"><ion-icon name="logo-linkedin"></ion-icon> Linkedin</a></li>
+                    </ul>
+                    </div>
+            </div>
+            <div class="bottom-bar">
+                <p>&copy; 2024 your company . All rights reserved</p>
+            </div>
+        </footer>
         <script src="main.js"></script>
-    
     </body>
 </html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="keywords" content="programacao,html,css,competicao,competições,maratona,maratonas,sacm,sisapoio">
+        <meta name="author" content="Victor,Markos,Santiago">
+        <title>Sistema de Apoio a Competições e Maratonas</title>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="styles.css">
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+        <script type='text/javasctipt' src="main-lista.js"></script>
+            <style>
+                #g-listaRegistros{ display: none; }
+                #g-cadastroRegistro{ 
+                    display: none;
+                    flex-direction: column;
+                    gap: 30px;
+                }
+                body[page=g-lista] #g-listaRegistros { display: block; }
+                body[page=g-cadastro] #g-cadastroRegistro { display: flex; }            
+                body{
+                    font-size: 14px;
+                    background-image: url(imgs/background2.png);
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-position: center;
+
+                }    
+                section{
+                    width: 100%;
+                    border-collapse: collapse;
+                }
+                table div{
+                    font-size: 14px;
+                    padding: 10px 15px;
+                    border: solid 1px #ccc;
+                }
+                button{
+                    border: none;
+                    border-radius: 4px;
+                    cursor: pointer;
+                    background-color: #07a;
+                    color: #fff;
+                    margin: 3px;
+                    padding: 10px 15px;
+                }
+                button.cinza{
+                     background-color: #ccc;
+                     color: #666;
+                }
+                button.vermelho{
+                     background-color: #a00;
+                }
+                button:hover{
+                    opacity: 0.8;
+                }
+                input {
+                    border: solid 1px #ccc;
+                    border-radius: 4px;
+                    padding: 10px;
+                    width: 100%;
+                }
+                .g-label>div {
+                    display: flex;
+                }
+                .g-label>div>input {
+                    flex: 1;
+                }
+                
+                h1 {
+                    text-align: center;
+                    color: #ffffff;
+                }
+            </style>
+    </head>
+<body page="g-lista">
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="competicoes.html">Competições</a>
+        <a href="maratonas.html">Maratonas</a>
+        <a href="datas.html">Datas</a>
+        <a href="crieseugrupo.html">Crie seu Grupo</a>
+        <a href="ListadeGrupos.html">Lista de Grupos</a>
+        <a href="cadastrarse.html" class="preto">Cadastrar-se</a>
+        <a href="entrar.html" class="azul">Entrar</a>
+        <a href="perfil.html"><ion-icon name="person-circle-outline"></ion-icon></a>
+    </nav>
+    <div id="g-listaRegistros">
+        <h1>Lista de Grupos</h1>
+        <div style='display: flex;'>
+            <input style='flex:1' placeholder="PESQUISAR" autofocus id='inputPesquisa' />
+        </div>
+        <!-- Tabela de usuários -->
+    <div class="container">
+        <section class="section-1">
+            <div>      
+                <div id="groups-container">
+                    <!-- Os grupos serão adicionados dinamicamente aqui -->
+                </div>
+            </div>
+            <div id="GrupoRegistrosBody">
+                <!-- Os usuários serão carregados aqui dinamicamente -->
+            </div>
+        </section>
+    </div>
+    </div>
+        <!-- Formulário para criação e edição -->
+        <form id="g-cadastroRegistro">
+            <div class='g-label'>
+                <div>Nome do Grupo</div>
+                <div>
+                    <input type='text' readonly id='NomeG'>
+                </div>
+            </div>
+            <div class='g-label'>
+                <div>Nome do Líder</div>
+                <div>
+                    <input type="text" id='nomeL'>
+                </div>
+            </div>
+            <div class='g-label'>
+                <div>Email</div>
+                <div>
+                    <input type='email' id='email'>
+                </div>
+            </div>         
+            <input type="hidden" id="indexEdicao">    
+            <div>
+                <button>Salvar</button>
+                <button onclick="gvizualizar('g-lista')" class="cinza" type='button'>Cancelar</button>
+            </div>
+        </form>
+        <footer>
+            <div class="container3">
+                <div class="footer-content">
+                    <h3>Contate-nos</h3>
+                    <p>Email:Info@exemplo.com</p>
+                    <p>Fone:+ 12 12345 6789</p>
+                    <p>Endereço: Rua Seu Endereço 123</p>
+                </div>
+                <div class="footer-content">
+                    <h3>Links Rápidos</h3>
+                     <ul class="list">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="competicoes.html">Competições</a></li>
+                        <li><a href="maratonas.html">Maratonas</a></li>
+                        <li><a href="datas.html">Datas</a></li>
+                        <li><a href="crieseugrupo.html">Crie seu grupo</a></li>
+                     </ul>
+                </div>
+                <div class="footer-content">
+                    <h3>Redes Sociais</h3>
+                    <ul class="list">
+                     <li><a href="https://www.facebook.com"><ion-icon name="logo-facebook"></ion-icon> Facebook</a></li>
+                     <li><a href="https://www.instagram.com"><ion-icon name="logo-instagram"></ion-icon> Instagram</a></li>
+                     <li><a href="https://br.linkedin.com"><ion-icon name="logo-linkedin"></ion-icon> Linkedin</a></li>
+                    </ul>
+                    </div>
+            </div>
+            <div class="bottom-bar">
+                <p>&copy; 2024 your company . All rights reserved</p>
+            </div>
+        </footer>
+        <script>
+function loadGroups() {
+    const container = document.getElementById('groups-container');
+    container.innerHTML = ''; // Limpar o container
+    // Carregar todos os grupos de KEY_BD2
+    const groups = JSON.parse(localStorage.getItem('KEY_BD2')) || [];
+    // Verificar se há grupos salvos
+    if (groups.length === 0) {
+        container.innerHTML = '<p>Nenhum grupo encontrado.</p>';
+        return;
+    }
+    // Organizar e exibir os grupos com base no tipo
+    const competitionDiv = document.createElement('div');
+    const marathonDiv = document.createElement('div');
+    competitionDiv.innerHTML = `<h2>Grupos de Competição</h2>`;
+    marathonDiv.innerHTML = `<h2>Maratonistas</h2>`;
+    groups.forEach(group => {
+        const groupDiv = document.createElement('div');
+        groupDiv.classList.add('group-card');
+        if (group.type === 'grupoc') {
+            groupDiv.innerHTML = `
+                <h3>${group.groupName}</h3>
+                <p>Líder: ${group.leaderName}</p>
+                <p>Membros: ${group.members.join(', ')}</p>
+                <p>Email: ${group.teamEmail}</p>
+            `;
+            competitionDiv.appendChild(groupDiv);
+        } else if (group.type === 'grupom') {
+            groupDiv.innerHTML = `
+                <h3>${group.name}</h3>
+                <p>Email: ${group.email}</p>
+            `;
+            marathonDiv.appendChild(groupDiv);
+        }
+    });
+    // Adicionar seções de grupos ao container principal
+    if (competitionDiv.childElementCount > 1) container.appendChild(competitionDiv);
+    if (marathonDiv.childElementCount > 1) container.appendChild(marathonDiv);
+}
+// Carregar os grupos ao carregar a página
+window.addEventListener('DOMContentLoaded', loadGroups);
+        </script>
+    <script src="main.js"></script>
+</body>

@@ -1,3 +1,4 @@
+/*-------------------------------Markos--------------------------------*/
 /* Estilos generales */
 * {
     margin: 0;
@@ -5,26 +6,29 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
-
 body {
-    background: #f0f2f5;
+    background: #d8d8e1;
+    display: flex;
+    flex-direction: column;
     min-height: 100vh;
-    padding: 20px;
+    margin: 0; 
 }
-
 /* Navegación */
 nav {
-    background: white;
+    background: #f18930;
     padding: 15px;
     margin-bottom: 30px;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 2px 2px 15px rgba(0,0,0,0.3);
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 10px;
 }
-
+nav a:hover {
+    background: #8996a0;
+    color: white;
+}
 nav a {
     color: #333;
     text-decoration: none;
@@ -32,23 +36,33 @@ nav a {
     border-radius: 6px;
     transition: all 0.3s ease;
 }
-
-nav a:hover {
-    background: #2563eb;
-    color: white;
-}
-
 /* Contenedor principal */
 .container {
-    background: white;
+    background: #f6f9fd;
     padding: 30px;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0px 2px 15px rgba(0,0,0,0.2);
     max-width: 800px;
     margin: 0 auto;
     max-height: 100%;
+    width: 50%;
 }
-
+.container2 {
+    background: #ffce2b;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 15px rgba(0,0,0,0.2);
+    max-width: 800px;
+    margin: 100px auto;
+    max-height: 100%;
+}
+.container2 h1,h2 {
+    text-align: center;
+    text-shadow: 2px 2px 15px rgba(0,0,0,0.3);
+}
+.container2 span {
+    color: white;
+}
 /* Títulos */
 h1 {
     color: #333;
@@ -56,13 +70,11 @@ h1 {
     margin-bottom: 40px;
     font-size: 2em;
 }
-
 h2 {
     color: #444;
     margin: 20px 0;
     font-size: 1.5em;
 }
-
 /* Enlaces como botones */
 .btn {
     display: inline-block;
@@ -74,12 +86,10 @@ h2 {
     margin: 5px;
     transition: all 0.3s ease;
 }
-
 .btn:hover {
     background: #1d4ed8;
     transform: translateY(-2px);
 }
-
 /* Grid para deportes */
 .grid-deportes {
     display: grid;
@@ -87,77 +97,73 @@ h2 {
     gap: 20px;
     padding: 20px 0;
 }
-
 .deporte-card {
-    background: white;
+    background: #e1e2e4;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 8px;
     box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
-    text-decoration: none;
-    color: #333;
-    font-weight: 500;
-    text-align: center;
+    border: none;
+    cursor: pointer;
     transition: all 0.3s ease;
-    border: 2px solid transparent;
+    text-align: left;
+    width: 100%;
+    border-left: 4px solid transparent;
+    text-decoration: none;
+    color: black;
 }
-
 .deporte-card:hover {
-    transform: translateY(-5px);
-    border-color: #2563eb;
-    color: #2563eb;
+    background: #f1f5f9;
+    transform: translateX(10px);
+    border-left-color: #2563eb;
     box-shadow: 0 5px 15px rgba(37, 99, 235, 0.2);
 }
-
+.deporte-card a{
+    color: #2563eb;
+    font-size: 1.3em;
+    font-weight: 500;
+    margin: 0;
+}
 /* Formularios */
 .form-group {
     margin-bottom: 20px;
 }
-
 .form-group label {
     display: block;
     margin-bottom: 5px;
     color: #444;
 }
-
 .form-group input {
     width: 100%;
     padding: 8px;
     border: 1px solid #ddd;
     border-radius: 4px;
 }
-
 /* Responsive */
 @media (max-width: 768px) {
     .grid-deportes {
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
         gap: 15px;
     }
-
     .deporte-card {
         padding: 15px;
     }
-
     nav {
         flex-direction: column;
     }
-    
     nav a {
         width: 100%;
         text-align: center;
     }
-    
     .container {
         padding: 15px;
     }
 }
-
 /* Nuevos estilos para la lista de maratonas */
 .maratona-list {
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
-
 .maratona-item {
     background: #f8fafc;
     padding: 20px;
@@ -166,52 +172,43 @@ h2 {
     cursor: pointer;
     border-left: 4px solid transparent;
 }
-
 .maratona-item:hover {
     transform: translateX(10px);
     border-left-color: #2563eb;
     background: #f1f5f9;
 }
-
 .maratona-item h2 {
     color: #2563eb;
     font-size: 1.3em;
     font-weight: 500;
     margin: 0;
 }
-
 /* Responsive */
 @media (max-width: 768px) {
     nav {
         flex-direction: column;
-    }
-    
+    } 
     nav a {
         width: 100%;
         text-align: center;
-    }
-    
+    }  
     .container {
         padding: 20px;
         margin: 0 10px;
     }
-
     .maratona-item {
         padding: 15px;
     }
-
     .maratona-item:hover {
         transform: translateX(5px);
     }
 }
-
 .modalidade-buttons {
     display: flex;
     justify-content: center;
     gap: 30px;
     margin-top: 40px;
 }
-
 .btn-modalidade {
     background: #2563eb;
     color: white;
@@ -225,36 +222,34 @@ h2 {
     text-align: center;
     min-width: 200px;
 }
-
 .btn-modalidade:hover {
     background: white;
     color: #2563eb;
     transform: translateY(-3px);
     box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
 }
-
 /* Responsive */
 @media (max-width: 768px) {
     .modalidade-buttons {
         flex-direction: column;
         gap: 15px;
     }
-
     .btn-modalidade {
         width: 100%;
         padding: 12px 30px;
     }
 }
-
+/*--------------------------------------------------------------------------*/
+/*----------------------------Santiago-Gonzales-----------------------------*/
 .deporte-list {
     display: flex;
     flex-direction: column;
     gap: 15px;
     padding: 20px 0;
 }
-
 .deporte-btn {
     background: #f8fafc;
+    color: #181515;
     padding: 20px;
     border-radius: 8px;
     border: none;
@@ -264,35 +259,29 @@ h2 {
     width: 100%;
     border-left: 4px solid transparent;
 }
-
 .deporte-btn:hover {
     background: #f1f5f9;
     transform: translateX(10px);
     border-left-color: #2563eb;
 }
-
 .deporte-btn h2 {
     color: #2563eb;
     font-size: 1.3em;
     font-weight: 500;
     margin: 0;
 }
-
 /* Responsive */
 @media (max-width: 768px) {
     .deporte-btn {
         padding: 15px;
     }
-
     .deporte-btn:hover {
         transform: translateX(5px);
     }
-
     .deporte-btn h2 {
         font-size: 1.1em;
     }
 }
-
 .dates-section {
     background: white;
     padding: 20px;
@@ -300,86 +289,73 @@ h2 {
     margin-bottom: 30px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
-
 .dates-content {
     display: flex;
     gap: 30px;
     align-items: flex-start;
 }
-
 .dates-info {
     flex: 1;
 }
-
 .dates-image {
     width: 300px;
-    flex-shrink: 0;
 }
-
 .dates-image img {
-    width: 100%;
-    height: 200px;
+    width: 300px;
+    height: 300px;
     object-fit: cover;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     transition: transform 0.3s ease;
 }
-
 .dates-image img:hover {
     transform: scale(1.05);
 }
-
 /* Responsive */
 @media (max-width: 768px) {
     .hero-section {
         height: 200px;
     }
-
     .hero-content h1 {
         font-size: 2em;
     }
-
     .dates-content {
         flex-direction: column;
     }
-
     .dates-image {
         width: 100%;
         order: -1;
     }
-
     .dates-image img {
         height: 150px;
     }
 }
-
 /* Animaciones para imágenes */
 img {
     opacity: 0;
     transform: translateY(20px);
     transition: all 0.5s ease-in-out;
 }
-
 img.visible {
     opacity: 1;
     transform: translateY(0);
 }
-
 /* Estilo para enlaces activos */
 nav a.active {
     color: #ff6b6b;
     font-weight: bold;
 }
-
 /* Efectos hover para enlaces */
 nav a {
     transition: all 0.3s ease;
 }
-
 nav a:hover {
-    color: #ff6b6b;
+    color: #181515;
     transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgb(48, 43, 43);
 }
+/*--------------------------------------------------------------------------*/
+/*-------------------------------Victor-Hugo--------------------------------*/
 .profile-container {
     background: white;
     padding: 30px;
@@ -391,12 +367,10 @@ nav a:hover {
     flex-direction: column;
     align-items: center;
 }
-
 .profile-header {
     text-align: center;
     margin-bottom: 30px;
 }
-
 .profile-photo {
     background-image: url('imgs/profile-photo.jpg');
     width: 100px;
@@ -406,19 +380,16 @@ nav a:hover {
     margin-bottom: 15px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-
 #profile-name {
     color: #333;
     font-size: 1.8em;
     margin-bottom: 5px;
 }
-
 #profile-bio {
     color: #666;
     font-size: 1em;
     margin-bottom: 20px;
 }
-
 .edit-profile-btn, .logout-btn {
     padding: 10px 20px;
     border: none;
@@ -430,11 +401,9 @@ nav a:hover {
     transition: background 0.3s ease;
     margin: 5px;
 }
-
 .edit-profile-btn:hover {
     background: #1d4db8;
 }
-
 .logout-btn {
     background: #ff6b6b;
 }
@@ -442,35 +411,29 @@ nav a:hover {
 .logout-btn:hover {
     background: #e55555;
 }
-
 /* Informações de Contato */
 .profile-info {
     width: 100%;
     text-align: left;
     margin-bottom: 30px;
 }
-
 .profile-info h2, .profile-activities h2 {
     color: #444;
     font-size: 1.5em;
     margin-bottom: 15px;
 }
-
 .profile-info ul, .profile-activities ul {
     list-style: none;
 }
-
 .profile-info li {
     color: #555;
     font-size: 1em;
     margin-bottom: 8px;
 }
-
 .profile-info span {
     color: #333;
     font-weight: 500;
 }
-
 /* Atividades Recentes */
 .profile-activities {
     width: 100%;
@@ -480,16 +443,13 @@ nav a:hover {
     .profile-container {
         padding: 20px;
     }
-
     #profile-name {
         font-size: 1.5em;
     }
-
     .edit-profile-btn, .logout-btn {
         font-size: 0.9em;
         padding: 8px 16px;
     }
-
     .profile-photo {
         width: 100px;
         height: 100px;
@@ -501,26 +461,23 @@ nav a:hover {
     border: none;
     border-radius: 6px;
     color: white;
-    background: #ff6b6b;  /* Cor de fundo similar ao botão de logout */
+    background: #ff6b6b;
     font-size: 1em;
     cursor: pointer;
     transition: background 0.3s ease;
-    margin-left: 10px; /* Para dar um espaço entre o texto da atividade e o botão */
+    margin-left: 10px;
 }
-
 .remove-btn:hover {
-    background: #ebe5e5;  /* Cor mais escura ao passar o mouse */
+    background: #ebe5e5;
 }
-
 /* Ajuste no estilo da lista de atividades para acomodar o botão de remover */
 .profile-activities ul li {
     display: flex;
     align-items: center;
     margin-bottom: 10px
 }
-
 .profile-activities ul li button {
-    margin-left: 10px; /* Adiciona espaçamento entre o texto e o botão */
+    margin-left: 10px;
     cursor: pointer;
     background: none;
     border: none;
@@ -528,7 +485,6 @@ nav a:hover {
     font-weight: bold;
     transition: color 0.3s ease;
 }
-
 .profile-activities ul li button:hover {
     color: #c72e2e;
 }
@@ -536,8 +492,136 @@ nav a:hover {
     width: 350px;
     height: 350px;
 }
-.container-2 {  
-    background-color: #1d4db8;
-    height: 400px;
-    width: 300px;
+.grupo-registro div {
+    font-size: 14px;
+    padding: 10px 15px;
+    border: solid 1px #ccc;
 }
+#g-listaRegistros h1, #g-cadastroRegistro h1 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+#g-listaRegistros input#inputPesquisa {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+#GrupoRegistrosBody .grupo-registro {
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr auto auto;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+#GrupoRegistrosBody .grupo-registro div {
+    padding: 10px 15px;
+}
+.preto{
+    border: none;
+    cursor: pointer;
+    background-color: rgb(29, 29, 29);
+    color: #fff;
+    box-shadow: 2px 2px 15px rgba(0,0,0,0.3);
+}
+.azul{
+    border: none;
+    cursor: pointer;
+    background-color:   rgb(33, 81, 240);
+    color: #fff;
+    box-shadow: 2px 2px 15px rgba(0,0,0,0.3);
+}
+footer *{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    color: white;
+}
+footer{
+    background: #343434;
+    padding-top: 50px;
+    width: 100%;
+    margin-top: 350px;
+}
+.container3{
+    width: 1140px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+.footer-content{
+    width: 33.3%;
+}
+h3{
+    font-size: 28px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+.footer-content p{
+    width:190px;
+    margin: auto;
+    padding: 7px;
+}
+.footer-content ul{
+    text-align: center;
+}
+footer .list{
+    padding: 0;
+}
+footer .list li{
+    width: auto;
+    text-align: center;
+    list-style-type:none;
+    padding: 7px;
+    position: relative;
+}
+footer .list li::before{
+    content: '';
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 100%;
+    width: 0;
+    height: 2px;
+    background: #f18930;
+    transition-duration: .5s;
+}
+footer .list li:hover::before{
+    width: 70px;
+}
+footer .social-icons{
+    text-align: center;
+    padding: 0;
+}
+footer .social-icons li{
+    display: inline-block;
+    text-align: center;
+    padding: 5px;
+}
+footer .social-icons i{
+    color: white;
+    font-size: 25px;
+}
+footer a{
+    text-decoration: none;
+}
+footer a:hover{
+    color: #f18930;
+}
+footer .social-icons i:hover{
+    color: #f18930;
+}
+footer .bottom-bar{
+    background: #f18930;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 50px;
+}
+footer .bottom-bar p{
+    color: #343434;
+    margin: 0;
+    font-size: 16px;
+    padding: 7px;
+}
+/*------------------------------------------------------------------------*/

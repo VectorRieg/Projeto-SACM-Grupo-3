@@ -9,6 +9,15 @@
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </head>
+<style>
+body{ 
+    background-image: url(imgs/background2.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    
+}
+</style>
 <body>
     <nav>
         <a href="index.html">Inicio</a>
@@ -16,11 +25,11 @@
         <a href="maratonas.html">Maratonas</a>
         <a href="datas.html">Datas</a>
         <a href="crieseugrupo.html">Crie seu Grupo</a>
-        <a href="cadastrarse.html">Cadastrar-se</a>
-        <a href="entrar.html">Entrar</a>
+        <a href="ListadeGrupos.html">Lista de Grupos</a>
+        <a href="cadastrarse.html" class="preto">Cadastrar-se</a>
+        <a href="entrar.html" class="azul">Entrar</a>
         <a href="perfil.html"><ion-icon name="person-circle-outline"></ion-icon></a>
     </nav>
-
     <div class="container">
         <h1>Entrar na Maratona</h1>
         <form action="index.html" method="POST">
@@ -39,5 +48,31 @@
             <button type="submit" class="submit-btn">Enviar</button>
         </form>
     </div>
+    <script>
+    function saveMarathonParticipant(event) {
+    event.preventDefault();
+    // Coletar dados do formulário
+    const name = document.querySelector('input[type="text"]').value;
+    const email = document.querySelector('input[type="email"]').value;
+    const password = document.querySelector('input[type="password"]').value;
+    // Objeto do participante com o campo `type` definido como `grupom`
+    const participantData = {
+        type: 'grupom',
+        name,
+        email,
+        password
+    };
+    // Salvar no localStorage com a chave KEY_BD2
+    let participants = JSON.parse(localStorage.getItem('KEY_BD2')) || [];
+    participants.push(participantData);
+    localStorage.setItem('KEY_BD2', JSON.stringify(participants));
+    // Redirecionar para Lista de Grupos
+    window.location.href = 'ListadeGrupos.html';
+}
+// Atribuir a função de salvar ao formulário
+const form = document.querySelector('form');
+form.addEventListener('submit', saveMarathonParticipant);
+    </script>
+    <script src="main.js"></script>
 </body>
 </html>

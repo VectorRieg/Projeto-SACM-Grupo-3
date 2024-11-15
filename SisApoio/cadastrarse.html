@@ -9,6 +9,14 @@
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </head>
+<style>
+body{ 
+    background-image: url(imgs/background2.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+</style>
 <body>
     <nav>
         <a href="index.html">Inicio</a>
@@ -16,11 +24,11 @@
         <a href="maratonas.html">Maratonas</a>
         <a href="datas.html">Datas</a>
         <a href="crieseugrupo.html">Crie seu Grupo</a>
-        <a href="cadastrarse.html">Cadastrar-se</a>
-        <a href="entrar.html">Entrar</a>
+        <a href="ListadeGrupos.html">Lista de Grupos</a>
+        <a href="cadastrarse.html" class="preto">Cadastrar-se</a>
+        <a href="entrar.html" class="azul">Entrar</a>
         <a href="perfil.html"><ion-icon name="person-circle-outline"></ion-icon></a>
     </nav>
-
     <div class="container">
         <h1>Cadastro</h1>
         <form id="formCadastro">
@@ -43,22 +51,18 @@
             <button type="submit" class="submit-btn">Cadastrar</button>
         </form>
     </div>
-
     <script>
         const KEY_BD = "@usuariosestudo";
-
         // Função para salvar um novo usuário no localStorage
         function salvarUsuarioLocalStorage(nome, cpf, email, senha) {
             // Carrega os registros atuais do localStorage
             let listaRegistros = JSON.parse(localStorage.getItem(KEY_BD)) || {
                 ultimoIdGerado: 0,
                 usuarios: []
-            };
-            
+            };  
             // Gera um novo ID para o usuário
             const novoId = listaRegistros.ultimoIdGerado + 1;
             listaRegistros.ultimoIdGerado = novoId;
-
             // Cria o objeto do novo usuário
             const novoUsuario = {
                 id: novoId,
@@ -67,31 +71,26 @@
                 email: email,
                 senha: senha
             };
-
             // Adiciona o novo usuário à lista
             listaRegistros.usuarios.push(novoUsuario);
-
             // Salva os dados atualizados no localStorage
             localStorage.setItem(KEY_BD, JSON.stringify(listaRegistros));
         }
-
         // Manipula o evento de submissão do formulário
         document.getElementById("formCadastro").addEventListener("submit", function(event) {
             event.preventDefault(); // Previne o comportamento padrão de recarregar a página
-
             // Obtém os valores dos campos de entrada
             const nome = document.getElementById("nome").value;
             const cpf = document.getElementById("cpf").value;
             const email = document.getElementById("email").value;
             const senha = document.getElementById("senha").value;
-
             // Salva o usuário no localStorage
             salvarUsuarioLocalStorage(nome, cpf, email, senha);
-
             // Confirmação de cadastro e redirecionamento
             alert("Usuário cadastrado com sucesso!");
             window.location.href = "entrar.html"; // Redireciona para a página de lista
         });
     </script>
+    <script src="main.js"></script>
 </body>
 </html>

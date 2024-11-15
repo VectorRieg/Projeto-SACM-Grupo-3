@@ -9,6 +9,41 @@
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </head>
+<style>
+.deporte-card {
+    background: #e1e2e4;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: left;
+    width: 360px;
+    height: 170px;
+    border-left: 4px solid transparent;
+    text-decoration: none;
+    color: black;
+}
+body {
+    background-image:url(imgs/maratona-m-peb.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.co {
+    background: url(imgs/corrida.png);
+    background-size: 90px;
+    background-repeat: no-repeat;
+    background-position: center 75px;
+}
+.ci {
+    background: url(imgs/ciclismo.png);
+    background-size: 90px;
+    background-repeat: no-repeat;
+    background-position: center 75px;
+}
+</style>
 <body>
     <nav>
         <a href="index.html">Inicio</a>
@@ -16,22 +51,22 @@
         <a href="maratonas.html">Maratonas</a>
         <a href="datas.html">Datas</a>
         <a href="crieseugrupo.html">Crie seu Grupo</a>
-        <a href="cadastrarse.html">Cadastrar-se</a>
-        <a href="entrar.html">Entrar</a>
+        <a href="ListadeGrupos.html">Lista de Grupos</a>
+        <a href="cadastrarse.html" class="preto">Cadastrar-se</a>
+        <a href="entrar.html" class="azul">Entrar</a>
         <a href="perfil.html"><ion-icon name="person-circle-outline"></ion-icon></a>
     </nav>
-
     <div class="container">
         <h1>Maratonas</h1>
-        
         <div class="grid-deportes">
-            <a href="integrantes-m.html" class="deporte-card">
+            <a href="integrantes-m.html" class="deporte-card co">
                 <h2>Corrida</h2>
             </a>    
-            <a href="integrantes-m.html" class="deporte-card">
+            <a href="integrantes-m.html" class="deporte-card ci">
                 <h2>Ciclismo</h2>
             </a>
         </div>
     </div>
+    <script src="main.js"></script>
 </body>
 </html>

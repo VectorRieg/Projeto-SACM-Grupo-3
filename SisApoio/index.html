@@ -11,48 +11,97 @@
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </head>
+<style>
+body {
+    background: url(imgs/background1.png);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;  
+}
+.bk {
+    flex: 1; /* Faz com que o conteúdo principal ocupe o espaço restante */
+}
+h1 {
+    text-align: left;
+}
+p {
+    text-align: left;
 
+}
+h4 {
+    text-align: left;
+    font-size: 25px;
+    padding-top: 20px;
+}
+</style>
 <body>
+    <div class="bk">
     <nav>
         <a href="index.html">Inicio</a>
         <a href="competicoes.html">Competições</a>
         <a href="maratonas.html">Maratonas</a>
         <a href="datas.html">Datas</a>
         <a href="crieseugrupo.html">Crie seu Grupo</a>
-        <a href="cadastrarse.html">Cadastrar-se</a>
-        <a href="entrar.html">Entrar</a>
+        <a href="ListadeGrupos.html">Lista de Grupos</a>
+        <a href="cadastrarse.html" class="preto">Cadastrar-se</a>
+        <a href="entrar.html" class="azul">Entrar</a>
         <a href="perfil.html"><ion-icon name="person-circle-outline"></ion-icon></a>
-    </nav>
-
+    </nav> 
     <div class="container">
         <div class="welcome-section">
             <h1>Sistema de Apoio a Competições e Maratonas</h1>
-            <p>Organize e participe de competições e maratonas esportivas.</p>
+            <p>A comunidade engajada oferece inspiração e troca de conhecimentos, tornando mais acessível o caminho para atingir suas metas em competições e maratonas, independentemente do seu nível de experiência.</p>
         </div>
 
         <div class="features-grid">
             <div class="feature-card">
-                <h3>Competições</h3>
+                <h4>Competições</h4>
                 <p>Participe de diversas modalidades esportivas</p>
             </div>
             <div class="feature-card">
-                <h3>Maratonas</h3>
+                <h4>Maratonas</h4>
                 <p>Encontre as melhores maratonas</p>
             </div>
             <div class="feature-card">
-                <h3>Grupos</h3>
+                <h4>Grupos</h4>
                 <p>Crie ou junte-se a grupos</p>
             </div>
         </div>
     </div>
-
-    <style>
-    body {
-    background-image:url(imgs/pessoas-correndo+paisagem.jpg) ;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: right center;
-    }
-    </style>
+    </div>     
+    <footer>
+        <div class="container3">
+            <div class="footer-content">
+                <h3>Contate-nos</h3>
+                <p>Email:Info@exemplo.com</p>
+                <p>Fone:+ 12 12345 6789</p>
+                <p>Endereço: Rua Seu Endereço 123</p>
+            </div>
+            <div class="footer-content">
+                <h3>Links Rápidos</h3>
+                 <ul class="list">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="competicoes.html">Competições</a></li>
+                    <li><a href="maratonas.html">Maratonas</a></li>
+                    <li><a href="datas.html">Datas</a></li>
+                    <li><a href="crieseugrupo.html">Crie seu grupo</a></li>
+                 </ul>
+            </div>
+            <div class="footer-content">
+                <h3>Redes Sociais</h3>
+                <ul class="list">
+                 <li><a href="https://www.facebook.com"><ion-icon name="logo-facebook"></ion-icon> Facebook</a></li>
+                 <li><a href="https://www.instagram.com"><ion-icon name="logo-instagram"></ion-icon> Instagram</a></li>
+                 <li><a href="https://br.linkedin.com"><ion-icon name="logo-linkedin"></ion-icon> Linkedin</a></li>
+                </ul>
+                </div>
+        </div>
+        <div class="bottom-bar">
+            <p>&copy; 2024 your company . All rights reserved</p>
+        </div>
+    </footer>
 </body>
 </html>

@@ -18,22 +18,21 @@
                     flex-direction: column;
                     gap: 30px;
                 }
-                
                 body[page=lista] #listaRegistros { display: block; }
                 body[page=cadastro] #cadastroRegistro { display: flex; }
-            
                 body{
                     font-size: 14px;
                 }    
                 table{
                     width: 100%;
+                    background-color: #e0e0e0ce;
                     border-collapse: collapse;
                 }
                 table th,
                 table td{
                     font-size: 14px;
                     padding: 10px 15px;
-                    border: solid 1px #ccc;
+                    border: solid 1px #050505;
                 }
                 button{
                     border: none;
@@ -65,9 +64,7 @@
                 .label>div>input {
                     flex: 1;
                 }
-
             </style>
-
     </head>
 <body page="lista">
     <nav>
@@ -76,11 +73,11 @@
         <a href="maratonas.html">Maratonas</a>
         <a href="datas.html">Datas</a>
         <a href="crieseugrupo.html">Crie seu Grupo</a>
-        <a href="cadastrarse.html">Cadastrar-se</a>
-        <a href="entrar.html">Entrar</a>
+        <a href="ListadeGrupos.html">Lista de Grupos</a>
+        <a href="cadastrarse.html" class="preto">Cadastrar-se</a>
+        <a href="entrar.html" class="azul">Entrar</a>
         <a href="perfil.html"><ion-icon name="person-circle-outline"></ion-icon></a>
     </nav>
-
     <div id="listaRegistros">
         <h1>Lista de Usuários</h1>
         <div style='display: flex;'>
@@ -101,11 +98,9 @@
                 <!-- Os usuários serão carregados aqui dinamicamente -->
             </tbody>
         </table>
-        
         <div>
             <button onclick="vizualizar('cadastro', true)">Novo usuario</button>
         </div>
-    
     </div>
         <!-- Formulário para criação e edição -->
         <form id="cadastroRegistro">
@@ -149,6 +144,5 @@
                 <button onclick="vizualizar('lista')" class="cinza" type='button'>Cancelar</button>
             </div>
         </form>
-
     <script src="main.js"></script>
 </body>

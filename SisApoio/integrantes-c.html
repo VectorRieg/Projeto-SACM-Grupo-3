@@ -9,6 +9,14 @@
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </head>
+<style>
+body{ 
+    background-image: url(imgs/background2.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+</style>
 <body>
     <nav>
         <a href="index.html">Inicio</a>
@@ -16,19 +24,23 @@
         <a href="maratonas.html">Maratonas</a>
         <a href="datas.html">Datas</a>
         <a href="crieseugrupo.html">Crie seu Grupo</a>
-        <a href="cadastrarse.html">Cadastrar-se</a>
-        <a href="entrar.html">Entrar</a>
+        <a href="ListadeGrupos.html">Lista de Grupos</a>
+        <a href="cadastrarse.html" class="preto">Cadastrar-se</a>
+        <a href="entrar.html" class="azul">Entrar</a>
         <a href="perfil.html"><ion-icon name="person-circle-outline"></ion-icon></a>
     </nav>
-
     <div class="container">
         <h1>Criar Grupo de Competição</h1>
         <form action="index.html" method="POST" class="team-form">
             <div class="form-group">
-                <label>Nome do Líder</label>
-                <input type="text" required>
+                <label>Nome do Grupo</label>
+                <input type="text" id="group-name" required>
             </div>
-            
+            <div class="form-group">
+                <label>Nome do Líder</label>
+                <input type="text" id="leader-name" required>
+            </div>
+        
             <div class="members-section">
                 <h2>Membros da Equipe</h2>
                 <div id="members-container">
@@ -38,50 +50,76 @@
                     </div>
                 </div>
                 <button type="button" class="add-member-btn" onclick="addMember()">+ Adicionar Membro</button>
-            </div>
-
+            </div>   
             <div class="form-group">
                 <label>Email da Equipe</label>
-                <input type="email" required>
+                <input type="email" id="team-email" required>
             </div>
             <div class="form-group">
                 <label>Senha</label>
-                <input type="password" required>
-            </div>
-            
+                <input type="password" id="team-password" required>
+            </div>    
             <button type="submit" class="submit-btn">Criar Grupo</button>
         </form>
     </div>
-
     <script>
-        let memberCount = 1;
-        
-        function addMember() {
-            memberCount++;
-            const membersContainer = document.getElementById('members-container');
-            
-            const newMemberDiv = document.createElement('div');
-            newMemberDiv.className = 'form-group member-input';
-            
-            newMemberDiv.innerHTML = `
-                <div class="member-header">
-                    <label>Membro ${memberCount}</label>
-                    <button type="button" class="remove-member-btn" onclick="removeMember(this)">×</button>
-                </div>
-                <input type="text" required>
-            `;
-            
-            membersContainer.appendChild(newMemberDiv);
-        }
-
-        function removeMember(button) {
-            button.closest('.member-input').remove();
-            // Reordenar los números de los miembros
-            const memberInputs = document.querySelectorAll('.member-input');
-            memberInputs.forEach((input, index) => {
-                input.querySelector('label').textContent = `Membro ${index + 1}`;
-            });
-        }
+// Atribuir a função de salvar ao formulário
+const form = document.querySelector('.team-form');
+form.addEventListener('submit', saveGroupData); // Atualizado para a nova função
+// Adicionar um Membro
+let memberCount = 1;
+function addMember() {
+    memberCount++;
+    const membersContainer = document.getElementById('members-container');
+    const newMemberDiv = document.createElement('div');
+    newMemberDiv.className = 'form-group member-input';
+    newMemberDiv.innerHTML = `
+        <div class="member-header">
+            <label>Membro ${memberCount}</label>
+            <button type="button" class="remove-member-btn" onclick="removeMember(this)">×</button>
+        </div>
+        <input type="text" required>
+    `;
+    membersContainer.appendChild(newMemberDiv);
+}
+// Remover um Membro
+function removeMember(button) {
+    button.closest('.member-input').remove();
+    // Atualiza a contagem de membros e reordena os números
+    memberCount--;
+    const memberInputs = document.querySelectorAll('.member-input');
+    memberInputs.forEach((input, index) => {
+        input.querySelector('label').textContent = `Membro ${index + 1}`;
+    });
+}
+// Função para salvar os dados do grupo de competição no localStorage
+function saveGroupData(event) {
+    event.preventDefault();
+    // Coletar dados do formulário
+    const groupName = document.querySelector('#group-name').value;
+    const leaderName = document.querySelector('#leader-name').value;
+    const members = [];
+    const memberInputs = document.querySelectorAll('.member-input input');
+    memberInputs.forEach(input => members.push(input.value));
+    const teamEmail = document.querySelector('#team-email').value;
+    const teamPassword = document.querySelector('#team-password').value;
+    // Objeto do grupo com o campo `type` definido como `grupoc`
+    const groupData = {
+        type: 'grupoc',
+        groupName,
+        leaderName,
+        members,
+        teamEmail,
+        teamPassword
+    };
+    // Salvar no localStorage com a chave KEY_BD2
+    let groups = JSON.parse(localStorage.getItem('KEY_BD2')) || [];
+    groups.push(groupData);
+    localStorage.setItem('KEY_BD2', JSON.stringify(groups));
+    // Redirecionar para a lista de grupos após salvar
+    window.location.href = 'ListadeGrupos.html';
+}
     </script>
+    <script src="main.js"></script>
 </body>
 </html>
